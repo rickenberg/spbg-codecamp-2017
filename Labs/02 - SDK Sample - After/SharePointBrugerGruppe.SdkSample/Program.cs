@@ -21,6 +21,8 @@ namespace SharePointBrugerGruppe.SdkSample
             // https://graph.microsoft.com/beta/me/joinedTeams
             // Not available
 
+            // TODO: Create group, updload document, convert to PDF
+
             Console.WriteLine($"https://graph.microsoft.com/v1.0/groups/{groupId}");
             var group = graphClient.Groups[groupId].Request().GetAsync().Result;
             ObjectDumper.Dump(group);
