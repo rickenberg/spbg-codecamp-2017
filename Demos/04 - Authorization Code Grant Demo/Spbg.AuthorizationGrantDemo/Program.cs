@@ -6,6 +6,9 @@ using Microsoft.Identity.Client;
 
 namespace Spbg.AuthorizationGrantDemo
 {
+    /// <summary>
+    /// Simple example for Microsoft Graph with delegated permissions from a native application using the v2 endpoint in Azure AD.
+    /// </summary>
     internal static class Program
     {
         static void Main(string[] args)
@@ -24,7 +27,6 @@ namespace Spbg.AuthorizationGrantDemo
                 Console.WriteLine("User profile");
                 Console.WriteLine(responseJson);
             }
-
         }
 
         private static async Task<string> GetTokenForUserAsync()
@@ -32,6 +34,7 @@ namespace Spbg.AuthorizationGrantDemo
             var clientId = "1329f001-78b3-4b0b-ac7b-710bd6f4ec01";
             var identityClientApp = new PublicClientApplication(clientId);
 
+            // You can add any permission scope you want here. The user will get prompted for consent the first time a new permission scope is added.
             string[] scopes = { "User.Read" };
             AuthenticationResult authResult;
             try
